@@ -12,7 +12,8 @@ public class FunctionalProgrammingWithJavaApplication {
 		SpringApplication.run(FunctionalProgrammingWithJavaApplication.class, args);
 
 
-		printAllNumbersinListFunctional(List.of(12,9,8,7,6,5,4,3,2,1));
+//		printAllNumbersinListFunctional(List.of(12,9,8,7,6,5,4,3,2,1));
+		printAllEvenNumbersinListFunctional(List.of(12,9,8,7,6,5,4,3,2,1));
 	}
 
 	public static void print(int number){
@@ -27,5 +28,11 @@ public class FunctionalProgrammingWithJavaApplication {
 
 	}
 
+	private static void printAllEvenNumbersinListFunctional(List<Integer> numbers) {
 
+		numbers.stream()
+				.filter(number -> number%2 == 0) // Lambda Expression
+				.forEach(System.out :: println); // Methode Reference (Println)
+
+	}
 }
