@@ -60,4 +60,15 @@ public class PlayingWithStreams {
 //      strings.stream().sorted(Comparator.reverseOrder()).forEach(System.out::println)
 
 
+// --------------------   Create a new list of square numbers of another list
+//      List<Integer> doubledList = numbers.stream().map(x->x*x).collect(Collectors.toList())
+//      doubledList.stream().forEach(System.out::println)
+
+// --------------------   Create a new list of event numbers of another list
+//      List<Integer> eventNumbersList = numbers.stream().filter(x->x%2==0).collect(Collectors.toList())
+//      eventNumbersList.stream().forEach(System.out::println)
+
+// --------------------   Create a new list of length of strings from another list
+//      StringList.stream().map(x->x.length()).collect(Collectors.toList())
+
 }
