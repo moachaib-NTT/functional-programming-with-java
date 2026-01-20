@@ -12,8 +12,8 @@ public class BehaviorParameterizationPratiques {
 
 List<Integer> numbers = List.of(1, 2, 3, 4, 5, 6, 7, 8, 9, 10);
         List<Integer> squaredNumbers = mapAndCreateNewList(numbers, n -> n * n);
-        List<Integer> cubedNumbers = mapAndCreateNewList(numbers, n -> n * n);
-        List<Integer> doubledNumbers = mapAndCreateNewList(numbers, n -> n * n);
+        List<Integer> cubedNumbers = mapAndCreateNewList(numbers, n -> n * n * n);
+        List<Integer> doubledNumbers = mapAndCreateNewList(numbers, n -> n + n);
 
         System.out.println("Squared Numbers: " + squaredNumbers);
         System.out.println("Cubed Numbers: " + cubedNumbers);
