@@ -184,6 +184,55 @@ public class CustomClass {
                         .sorted(comparingByNoOfStudentsAndNumberOfRiviews)
                         .findAny()  // non deterministic
         );
+//sum / average / count
+        System.out.println( "Sum of no of students -> "+
+                courses.stream()
+                        .filter(reviewScoreGreaterThan95)
+                        .mapToInt(Course::getNoOfStudents)
+                        .sum()
+        );
+
+        System.out.println( "Average of no of students -> "+
+                courses.stream()
+                        .filter(reviewScoreGreaterThan95)
+                        .mapToInt(Course::getNoOfStudents)
+                        .average()
+        );
+
+        System.out.println( "Count of no of students -> "+
+                courses.stream()
+                        .filter(reviewScoreGreaterThan95)
+                        .mapToInt(Course::getNoOfStudents)
+                        .count()
+        );
+// GroupingBy
+        System.out.println( "Grouping by category -> "+
+                courses.stream()
+                        .collect(Collectors.groupingBy(Course::getCategory))
+        );
+
+        System.out.println( "Grouping by category and counting -> "+
+                courses.stream()
+                        .collect(Collectors.groupingBy(Course::getCategory,Collectors.counting()))
+        );
+
+        System.out.println( "Grouping by category and max review score -> "+
+                courses.stream()
+                        .collect(Collectors.groupingBy(Course::getCategory,
+                                Collectors.maxBy(
+                                        comparingByNoOfStudentsAndNumberOfRiviews
+                                )))
+        );
+
+// groupingBy and mapping
+        System.out.println( "Grouping by category and mapping -> "+
+                courses.stream()
+                        .collect(Collectors.groupingBy(Course::getCategory,
+                                Collectors.mapping(
+                                        Course::getName,
+                                        Collectors.toList()
+                                )))
+        );
 
     }
 
