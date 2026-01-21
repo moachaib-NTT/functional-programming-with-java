@@ -111,6 +111,35 @@ public class CustomClass {
         );
 
 
+// limit() / skip()
+        System.out.println( "Sorted by No of students and Rivews with limit 5 -> "+
+                courses.stream()
+                        .sorted(comparingByNoOfStudentsAndNumberOfRiviews)
+                        .limit(5)
+                        .collect(Collectors.toList())
+        );
+
+        System.out.println( "Sorted by No of students and Rivews with skip 3 -> "+
+                courses.stream()
+                        .sorted(comparingByNoOfStudentsAndNumberOfRiviews)
+                        .skip(3)
+                        .collect(Collectors.toList())
+        );
+        
+// takeWhile() / dropWhile()
+        System.out.println( "takeWhile review score greater than 95 -> "+
+                courses.stream()
+                        .sorted(comparingByNoOfStudentsAndNumberOfRiviews)
+                        .takeWhile(course -> course.getReviewScore() > 95)
+                        .collect(Collectors.toList())
+        );
+
+        System.out.println( "dropWhile review score greater than 95 -> "+
+                courses.stream()
+                        .sorted(comparingByNoOfStudentsAndNumberOfRiviews)
+                        .dropWhile(course -> course.getReviewScore() > 95)
+                        .collect(Collectors.toList())
+        );
 
 
     }
