@@ -44,6 +44,26 @@ public class FunctionalInterfaces {
         };
         System.out.println(randomIntegerSupplier.get());
 
+        // Example usage of BiPredicate
+        //take (input) integer and string and return (output) boolean
+        //It called Bi because it takes two inputs of different types
+        BiPredicate<Integer, String> biPredicate = (number, str) -> {
+            return str.length() == number;
+        };
+        System.out.println(biPredicate.test(10,"reda"));
+
+        // Example usage of BiConsumer
+        //take (input) integer and string and return nothing (void)
+        //It called Bi because it takes two inputs of different types
+        BiFunction<Integer, String, String> biFunction = (number, str) -> {
+            return str +" "+ number;
+        };
+        System.out.println(biFunction.apply(10,"reda"));
+
+        BiConsumer<Integer, String> biConsumer = (number, str) -> {
+            System.out.println(str +" "+ number);
+        };
+        biConsumer.accept(10,"reda");
 
     }
 }
