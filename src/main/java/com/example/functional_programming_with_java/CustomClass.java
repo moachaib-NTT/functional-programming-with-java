@@ -142,6 +142,49 @@ public class CustomClass {
         );
 
 
+// Max / Min
+        System.out.println( "Max by review score -> "+
+                courses.stream()
+                        .max(comparingByNoOfStudentsAndNumberOfRiviews)
+        );
+
+        System.out.println( "Min by review score -> "+
+                courses.stream()
+                        .min(comparingByNoOfStudentsAndNumberOfRiviews)
+        );
+// filter / min / orElse
+        System.out.println( "Min by review score with filter -> "+
+                courses.stream()
+                        .filter(reviewScoreLessThan90)
+                        .min(comparingByNoOfStudentsAndNumberOfRiviews)
+                        .orElse(new Course("Kubernetes", "Cloud", 91, 20000))
+        );
+
+        // filter / min /  --> without orElse <--
+        System.out.println( "Min by review score with filter -> "+
+                courses.stream()
+                        .filter(reviewScoreLessThan90)
+                        .min(comparingByNoOfStudentsAndNumberOfRiviews)
+        );
+        //return optional.empty;
+
+
+
+    // findFirst  / findAny-(is non deterministic operation
+        System.out.println( "findFirst -> "+
+                courses.stream()
+                        .filter(reviewScoreGreaterThan95)
+                        .sorted(comparingByNoOfStudentsAndNumberOfRiviews)
+                        .findFirst()
+        );
+
+        System.out.println( "findAny -> "+
+                courses.stream()
+                        .filter(reviewScoreGreaterThan95)
+                        .sorted(comparingByNoOfStudentsAndNumberOfRiviews)
+                        .findAny()  // non deterministic
+        );
+
     }
 
 }
